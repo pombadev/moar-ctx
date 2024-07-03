@@ -1,4 +1,4 @@
-import {type ExtensionContext, window, commands} from 'vscode';
+import { type ExtensionContext, window, commands } from 'vscode';
 
 export function activate(context: ExtensionContext) {
   const disposable = commands.registerCommand('moar-ctx.findSelectionInFiles', () => {
@@ -8,7 +8,7 @@ export function activate(context: ExtensionContext) {
     commands.executeCommand("workbench.action.findInFiles", {
       query: selection
     });
-	});
+  });
 
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable);
 }
