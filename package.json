@@ -1,0 +1,53 @@
+{
+  "name": "moar-ctx",
+  "displayName": "Context, context, context!",
+  "description": "Add more stuffs to context menu",
+  "version": "0.0.1",
+  "publisher": "pombadev",
+  "icon": "./icon.png",
+  "license": "Apache-2.0",
+  "repository": "https://github.com/pombadev/moar-ctx",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "context",
+    "context menu"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "moar-ctx.findSelectionInFiles",
+        "enablement": "editorHasSelection",
+        "title": "File selection in Files"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorHasSelection",
+          "command": "moar-ctx.findSelectionInFiles",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "lint": "eslint src --ext ts"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.90.0",
+    "@types/node": "^20.14.9",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "eslint": "^8"
+  }
+}
